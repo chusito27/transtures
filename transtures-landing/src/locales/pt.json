@@ -75,5 +75,17 @@
   "expense": "Despesa",
   "income": "Receita",
   "enter_amount": "Digite o valor",
-  "edit_transaction": "Editar Transação"
+  "edit_transaction": "Editar Transação",
+  "add_new_destination": "Adicionar Novo Destino",
+  "max_5_images": "Você pode selecionar até 5 imagens.",
+  "image_upload_failed": "Falha ao carregar imagem: {{fileName}}",
+  "no_images_uploaded": "Nenhuma imagem foi carregada.",
+  "destination_added_successfully": "Destino adicionado com sucesso!",
+  "error_adding_destination": "Erro ao adicionar destino.",
+  "select_images": "Selecionar Imagens",
+  "up_to_5": "até 5",
+  "image_upload_note": "Por favor, selecione até 5 imagens para o destino.",
+  "image_previews": "Pré-visualizações de Imagens",
+  "adding_destination": "Adicionando Destino...",
+  "cancel": "Cancelar"
 }

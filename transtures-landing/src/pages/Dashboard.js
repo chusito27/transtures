@@ -7,7 +7,7 @@ import DestinationsAdmin from './admin/DestinationsAdmin';
 import BannersAdmin from './admin/BannersAdmin';
 import ServicesAdmin from './admin/ServicesAdmin';
 import FinancesAdmin from './admin/FinancesAdmin';
-import { useTranslation } from 'react-i18next';
+import AddDestination from './admin/AddDestination'; // Import AddDestination
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -36,7 +36,7 @@ const Dashboard = () => {
         <div className="sidebar">
           <Nav className="flex-column">
             <Nav.Link onClick={() => navigate('/admin/inicio')} className={location.pathname === '/admin/inicio' ? 'active' : ''}>{t('inicio')}</Nav.Link>
-            <Nav.Link onClick={() => navigate('/admin/destinos')} className={location.pathname === '/admin/destinos' ? 'active' : ''}>{t('destinos')}</Nav.Link>
+            <Nav.Link onClick={() => navigate('/admin/destinos')} className={location.pathname.startsWith('/admin/destinos') ? 'active' : ''}>{t('destinos')}</Nav.Link>
             <Nav.Link onClick={() => navigate('/admin/banners')} className={location.pathname === '/admin/banners' ? 'active' : ''}>{t('banners')}</Nav.Link>
             <Nav.Link onClick={() => navigate('/admin/servicios')} className={location.pathname === '/admin/servicios' ? 'active' : ''}>{t('servicios')}</Nav.Link>
             <Nav.Link onClick={() => navigate('/admin/finanzas')} className={location.pathname === '/admin/finanzas' ? 'active' : ''}>{t('finanzas')}</Nav.Link>
@@ -46,6 +46,8 @@ const Dashboard = () => {
           <Routes key={location.pathname}> {/* Add key prop here */}
             <Route path="inicio" element={<h2>{t('welcome_admin_dashboard')}</h2>} />
             <Route path="destinos" element={<DestinationsAdmin />} />
+            <Route path="destinos/add" element={<AddDestination />} /> {/* New route for adding destinations */}
+            <Route path="destinos/edit/:id" element={<AddDestination />} /> {/* New route for editing destinations */}
             <Route path="banners" element={<BannersAdmin />} />
             <Route path="servicios" element={<ServicesAdmin />} />
             <Route path="finanzas" element={<FinancesAdmin />} />
