@@ -1,22 +1,38 @@
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dashboard-navbar {
+  width: 100%;
+  z-index: 1000;
+}
+
 .sidebar {
-  height: 100vh;
+  height: calc(100vh - 56px); /* Adjust for navbar height */
   position: fixed;
-  top: 0;
+  top: 56px; /* Position below the navbar */
   left: 0;
   width: 250px;
   background-color: #343a40;
   padding-top: 1rem;
+  overflow-y: auto; /* Enable scrolling for long sidebars */
 }
 
 .sidebar .nav-link {
   color: #fff;
+  padding: 0.75rem 1rem;
 }
 
 .sidebar .nav-link:hover {
   color: #007bff;
+  background-color: #495057;
 }
 
 .content {
   margin-left: 250px;
   padding: 1rem;
+  flex-grow: 1;
+  padding-top: 70px; /* Adjust for navbar height */
 }
