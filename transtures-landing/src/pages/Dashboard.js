@@ -1,5 +1,10 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
+import { Routes, Route, Link } from 'react-router-dom';
+import DestinationsAdmin from './admin/DestinationsAdmin';
+import BannersAdmin from './admin/BannersAdmin';
+import ServicesAdmin from './admin/ServicesAdmin';
+import FinancesAdmin from './admin/FinancesAdmin';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -7,16 +12,22 @@ const Dashboard = () => {
     <div>
       <div className="sidebar">
         <Nav className="flex-column">
-          <Nav.Link>Inicio</Nav.Link>
-          <Nav.Link>Destinos</Nav.Link>
-          <Nav.Link>Banners</Nav.Link>
-          <Nav.Link>Servicios</Nav.Link>
-          <Nav.Link>Finanzas</Nav.Link>
+          <Nav.Link as={Link} to="/admin/inicio">Inicio</Nav.Link>
+          <Nav.Link as={Link} to="/admin/destinos">Destinos</Nav.Link>
+          <Nav.Link as={Link} to="/admin/banners">Banners</Nav.Link>
+          <Nav.Link as={Link} to="/admin/servicios">Servicios</Nav.Link>
+          <Nav.Link as={Link} to="/admin/finanzas">Finanzas</Nav.Link>
         </Nav>
       </div>
       <div className="content">
-        <h1>Dashboard</h1>
-        {/* Content for the selected module will be rendered here */}
+        <Routes>
+          <Route path="inicio" element={<h2>Welcome to the Admin Dashboard!</h2>} />
+          <Route path="destinos" element={<DestinationsAdmin />} />
+          <Route path="banners" element={<BannersAdmin />} />
+          <Route path="servicios" element={<ServicesAdmin />} />
+          <Route path="finanzas" element={<FinancesAdmin />} />
+          <Route path="/" element={<h2>Welcome to the Admin Dashboard!</h2>} /> {/* Default route */}
+        </Routes>
       </div>
     </div>
   );
