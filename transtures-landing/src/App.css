@@ -44,3 +44,13 @@ section {
 .card {
   margin-bottom: 1rem;
 }
+
+.card-carousel {
+  height: 200px; /* Fixed height for the carousel */
+  overflow: hidden; /* Hide overflow if images are larger */
+}
+
+.card-img-fixed-height {
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Cover the area without distortion */
+}

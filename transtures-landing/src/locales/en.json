@@ -88,5 +88,7 @@
   "image_previews": "Image Previews",
   "adding_destination": "Adding Destination...",
   "cancel": "Cancel",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "interested_in_tour": "I am interested in the tour",
+  "more_info": "I would like more information."
 }

@@ -9,18 +9,25 @@ const TourCard = ({ tour }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const whatsappMessage = encodeURIComponent(`${t('interested_in_tour')} ${tour.title}... ${t('more_info')}`);
+  const whatsappLink = `https://wa.me/50672972591?text=${whatsappMessage}`;
+
   return (
     <>
-      <Card onClick={handleShow} style={{ cursor: 'pointer' }}>
-        <Carousel interval={2000}>
+      <Card style={{ cursor: 'pointer' }}>
+        <Carousel interval={2000} className="card-carousel">
           {tour.images.map((image, index) => (
             <Carousel.Item key={index}>
-              <img className="d-block w-100" src={image} alt={tour.title} />
+              <img className="d-block w-100 card-img-fixed-height" src={image} alt={tour.title} />
             </Carousel.Item>
           ))}
         </Carousel>
         <Card.Body>
           <Card.Title>{tour.title}</Card.Title>
+          <Card.Text>{tour.description}</Card.Text>
+          <Button variant="primary" size="sm" href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            {t('book_now')}
+          </Button>
         </Card.Body>
       </Card>
 
