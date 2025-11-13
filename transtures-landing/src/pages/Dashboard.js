@@ -1,6 +1,6 @@
 import React from 'react';
 import { Nav, Navbar, Button } from 'react-bootstrap';
-import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import DestinationsAdmin from './admin/DestinationsAdmin';
