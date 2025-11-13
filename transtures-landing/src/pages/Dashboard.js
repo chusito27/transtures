@@ -32,12 +32,11 @@ const Dashboard = () => {
       <div className="d-flex">
         <div className="sidebar">
           <Nav className="flex-column">
-            <Nav.Link as={Link} to="inicio">Inicio</Nav.Link>
-            <Nav.Link as={Link} to="destinos">Destinos</Nav.Link>
-            <Nav.Link as={Link} to="banners">Banners</Nav.Link>
-            <Nav.Link as={Link} to="servicios">Servicios</Nav.Link>
-            <Nav.Link as={Link} to="finanzas">Finanzas</Nav.Link>
-          </Nav>
+                      <Nav.Link onClick={() => navigate('/admin/inicio')}>Inicio</Nav.Link>
+                      <Nav.Link onClick={() => navigate('/admin/destinos')}>Destinos</Nav.Link>
+                      <Nav.Link onClick={() => navigate('/admin/banners')}>Banners</Nav.Link>
+                      <Nav.Link onClick={() => navigate('/admin/servicios')}>Servicios</Nav.Link>
+                      <Nav.Link onClick={() => navigate('/admin/finanzas')}>Finanzas</Nav.Link>          </Nav>
         </div>
         <div className="content flex-grow-1">
           <Routes>
