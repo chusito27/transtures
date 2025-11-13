@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { db } from '../../firebase';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
@@ -12,14 +12,14 @@ const ServicesAdmin = () => {
 
   const servicesCollectionRef = collection(db, 'services');
 
-  useEffect(() => {
-    getServices();
-  }, []);
-
-  const getServices = async () => {
+  const getServices = useCallback(async () => {
     const data = await getDocs(servicesCollectionRef);
     setServices(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  };
+  }, [servicesCollectionRef]);
+
+  useEffect(() => {
+    getServices();
+  }, [getServices]);
 
   const handleShowModal = (service = null) => {
     setCurrentService(service);

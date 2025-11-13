@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { db } from '../../firebase';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
@@ -13,14 +13,14 @@ const DestinationsAdmin = () => {
 
   const destinationsCollectionRef = collection(db, 'destinations');
 
-  useEffect(() => {
-    getDestinations();
-  }, []);
-
-  const getDestinations = async () => {
+  const getDestinations = useCallback(async () => {
     const data = await getDocs(destinationsCollectionRef);
     setDestinations(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  };
+  }, [destinationsCollectionRef]);
+
+  useEffect(() => {
+    getDestinations();
+  }, [getDestinations]);
 
   const handleShowModal = (destination = null) => {
     setCurrentDestination(destination);

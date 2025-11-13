@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { db } from '../../firebase';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
@@ -13,14 +13,14 @@ const FinancesAdmin = () => {
 
   const transactionsCollectionRef = collection(db, 'finances');
 
-  useEffect(() => {
-    getTransactions();
-  }, []);
-
-  const getTransactions = async () => {
+  const getTransactions = useCallback(async () => {
     const data = await getDocs(transactionsCollectionRef);
     setTransactions(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  };
+  }, [transactionsCollectionRef]);
+
+  useEffect(() => {
+    getTransactions();
+  }, [getTransactions]);
 
   const handleShowModal = (transaction = null) => {
     setCurrentTransaction(transaction);

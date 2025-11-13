@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { db } from '../../firebase';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
@@ -12,14 +12,14 @@ const BannersAdmin = () => {
 
   const bannersCollectionRef = collection(db, 'banners');
 
-  useEffect(() => {
-    getBanners();
-  }, []);
-
-  const getBanners = async () => {
+  const getBanners = useCallback(async () => {
     const data = await getDocs(bannersCollectionRef);
     setBanners(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  };
+  }, [bannersCollectionRef]);
+
+  useEffect(() => {
+    getBanners();
+  }, [getBanners]);
 
   const handleShowModal = (banner = null) => {
     setCurrentBanner(banner);
