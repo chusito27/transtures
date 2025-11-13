@@ -13,6 +13,8 @@
   "luxury_bus_tours_text": "Viaje com conforto e estilo em nossos ônibus de luxo.",
   "contact_us": "Contate-Nos",
   "address": "Endereço:",
-  "phone": "Telefone:",
+  "phone": "Telefone",
+  "whatsapp": "WhatsApp",
+  "email": "Email",
   "copyright": "© {{year}} Transtures S.A. Todos os direitos reservados."
 }

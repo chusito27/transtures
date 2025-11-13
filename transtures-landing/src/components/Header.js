@@ -7,7 +7,7 @@ const Header = () => {
   const { t } = useTranslation();
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="light" variant="light" expand="lg">
       <Container>
         <Navbar.Brand href="#home">
           <img
@@ -25,7 +25,7 @@ const Header = () => {
             <Nav.Link href="#services">{t('services')}</Nav.Link>
             <Nav.Link href="#contact">{t('contact')}</Nav.Link>
           </Nav>
-          <Nav className="ms-auto">
+          <Nav className="ms-auto d-flex align-items-center">
             <LanguageSwitcher />
           </Nav>
         </Navbar.Collapse>

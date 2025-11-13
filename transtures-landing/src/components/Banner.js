@@ -33,7 +33,9 @@ const Banner = () => {
       </Carousel>
       <div className="banner-caption-overlay">
         <h3>{t('book_your_next_trip')}</h3>
-        <Button variant="primary">{t('book_now')}</Button>
+        <a href="https://wa.me/50672972591" target="_blank" rel="noopener noreferrer">
+          <Button variant="primary">{t('book_now')}</Button>
+        </a>
       </div>
     </div>
   );

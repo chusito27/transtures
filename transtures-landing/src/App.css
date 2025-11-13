@@ -15,7 +15,17 @@ body {
 }
 
 .navbar {
-  background-color: #003366 !important;
+  /* background-color: #003366 !important; */
+}
+
+.contact-info {
+  color: #333; /* Dark text for light background */
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.contact-info span {
+  white-space: nowrap; /* Prevent phone/email from breaking */
 }
 
 .footer {

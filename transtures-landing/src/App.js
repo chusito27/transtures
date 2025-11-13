@@ -64,8 +64,9 @@ function App() {
           <Col>
             <section id="contact">
               <h2>{t('contact_us')}</h2>
-              <p><strong>{t('address')}</strong> Cl. 145 #94-45, Bogotá, Cundinamarca, Colombia</p>
-              <p><strong>{t('phone')}</strong> +57 311 4900367</p>
+              <p><strong>{t('phone')}:</strong> 8806-9887</p>
+              <p><strong>{t('whatsapp')}:</strong> 7297-2591</p>
+              <p><strong>{t('email')}:</strong> transtures.sa@gmail.com</p>
             </section>
           </Col>
         </Row>
