@@ -1,6 +1,6 @@
 import React from 'react';
 import { Nav, Navbar, Button } from 'react-bootstrap';
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import DestinationsAdmin from './admin/DestinationsAdmin';
@@ -11,6 +11,7 @@ import './Dashboard.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const location = useLocation(); // Get the current location
 
   const handleLogout = async () => {
     try {
@@ -39,7 +40,7 @@ const Dashboard = () => {
                       <Nav.Link onClick={() => navigate('/admin/finanzas')}>Finanzas</Nav.Link>          </Nav>
         </div>
         <div className="content flex-grow-1">
-          <Routes>
+          <Routes key={location.pathname}> {/* Add key prop here */}
             <Route path="inicio" element={<h2>Welcome to the Admin Dashboard!</h2>} />
             <Route path="destinos" element={<DestinationsAdmin />} />
             <Route path="banners" element={<BannersAdmin />} />
