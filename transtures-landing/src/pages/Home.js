@@ -47,63 +47,61 @@ const Home = () => {
           )}
         </Container>
       </section>
-      <Container className="mt-5">
-        <Row>
-          <Col>
-            <section id="services">
-              <h2>{t('our_services')}</h2>
-              <Row>
-                <Col md={4}>
-                  <Card>
-                    {/* TODO: Replace with a real image URL */}
-                    <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Educational+Tours" />
-                    <Card.Body>
-                      <Card.Title>{t('educational_tours')}</Card.Title>
-                      <Card.Text>
-                        {t('educational_tours_text')}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-                <Col md={4}>
-                  <Card>
-                    {/* TODO: Replace with a real image URL */}
-                    <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Family+Trips" />
-                    <Card.Body>
-                      <Card.Title>{t('family_trips')}</Card.Title>
-                      <Card.Text>
-                        {t('family_trips_text')}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-                <Col md={4}>
-                  <Card>
-                    {/* TODO: Replace with a real image URL */}
-                    <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Luxury+Bus+Tours" />
-                    <Card.Body>
-                      <Card.Title>{t('luxury_bus_tours')}</Card.Title>
-                      <Card.Text>
-                        {t('luxury_bus_tours_text')}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              </Row>
-            </section>
-          </Col>
-        </Row>
-        <Row className="mt-5">
-          <Col>
-            <section id="contact">
-              <h2>{t('contact_us')}</h2>
+      <section id="services" className="py-5 bg-dark-gray text-white">
+        <Container>
+          <h2 className="text-center mb-4">{t('our_services')}</h2>
+          <Row>
+            <Col md={4}>
+              <Card>
+                {/* TODO: Replace with a real image URL */}
+                <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Educational+Tours" />
+                <Card.Body>
+                  <Card.Title>{t('educational_tours')}</Card.Title>
+                  <Card.Text>
+                    {t('educational_tours_text')}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card>
+                {/* TODO: Replace with a real image URL */}
+                <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Family+Trips" />
+                <Card.Body>
+                  <Card.Title>{t('family_trips')}</Card.Title>
+                  <Card.Text>
+                    {t('family_trips_text')}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card>
+                {/* TODO: Replace with a real image URL */}
+                <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Luxury+Bus+Tours" />
+                <Card.Body>
+                  <Card.Title>{t('luxury_bus_tours')}</Card.Title>
+                  <Card.Text>
+                    {t('luxury_bus_tours_text')}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+      <section id="contact" className="py-5 bg-white">
+        <Container>
+          <h2 className="text-center mb-4">{t('contact_us')}</h2>
+          <Row className="justify-content-center">
+            <Col md={6} lg={4} className="text-center">
               <p><strong>{t('phone')}:</strong> 8806-9887</p>
               <p><strong>{t('whatsapp')}:</strong> 7297-2591</p>
               <p><strong>{t('email')}:</strong> transtures.sa@gmail.com</p>
-            </section>
-          </Col>
-        </Row>
-      </Container>
+            </Col>
+          </Row>
+        </Container>
+      </section>
       <WhatsAppButton />
       <Footer />
     </div>

@@ -54,3 +54,17 @@ section {
   height: 200px; /* Fixed height for images */
   object-fit: cover; /* Cover the area without distortion */
 }
+
+.bg-dark-gray {
+  background-color: #343a40; /* Dark gray background */
+  color: white; /* White text for dark background */
+}
+
+.bg-white {
+  background-color: #ffffff; /* White background */
+  color: #333; /* Dark text for white background */
+}
+
+.bg-dark-gray h2 {
+  color: white; /* Ensure headings are white on dark background */
+}
