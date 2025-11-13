@@ -12,11 +12,11 @@ const Dashboard = () => {
     <div>
       <div className="sidebar">
         <Nav className="flex-column">
-          <Nav.Link as={Link} to="/admin/inicio">Inicio</Nav.Link>
-          <Nav.Link as={Link} to="/admin/destinos">Destinos</Nav.Link>
-          <Nav.Link as={Link} to="/admin/banners">Banners</Nav.Link>
-          <Nav.Link as={Link} to="/admin/servicios">Servicios</Nav.Link>
-          <Nav.Link as={Link} to="/admin/finanzas">Finanzas</Nav.Link>
+          <Nav.Link as={Link} to="inicio">Inicio</Nav.Link>
+          <Nav.Link as={Link} to="destinos">Destinos</Nav.Link>
+          <Nav.Link as={Link} to="banners">Banners</Nav.Link>
+          <Nav.Link as={Link} to="servicios">Servicios</Nav.Link>
+          <Nav.Link as={Link} to="finanzas">Finanzas</Nav.Link>
         </Nav>
       </div>
       <div className="content">
