@@ -23,6 +23,7 @@ const Header = () => {
           <Nav className="me-auto">
             <Nav.Link href="#home">{t('home')}</Nav.Link>
             <Nav.Link href="#services">{t('services')}</Nav.Link>
+            <Nav.Link href="#destinations">{t('destinations')}</Nav.Link>
             <Nav.Link href="#contact">{t('contact')}</Nav.Link>
           </Nav>
           <Nav className="ms-auto d-flex align-items-center">
