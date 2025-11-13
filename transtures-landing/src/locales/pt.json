@@ -1,0 +1,18 @@
+{
+  "home": "Início",
+  "services": "Serviços",
+  "contact": "Contato",
+  "book_your_next_trip": "Reserve sua próxima viagem?",
+  "book_now": "Reservar",
+  "our_services": "Nossos Serviços",
+  "educational_tours": "Passeios Educacionais",
+  "educational_tours_text": "Oferecemos passeios educacionais para escolas e universidades.",
+  "family_trips": "Viagens em Família",
+  "family_trips_text": "Planeje sua próxima viagem em família conosco.",
+  "luxury_bus_tours": "Passeios de Ônibus de Luxo",
+  "luxury_bus_tours_text": "Viaje com conforto e estilo em nossos ônibus de luxo.",
+  "contact_us": "Contate-Nos",
+  "address": "Endereço:",
+  "phone": "Telefone:",
+  "copyright": "© {{year}} Transtures S.A. Todos os direitos reservados."
+}

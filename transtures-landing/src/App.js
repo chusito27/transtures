@@ -1,31 +1,77 @@
+import React from 'react';
+import Header from './components/Header';
+import Banner from './components/Banner';
+import WhatsAppButton from './components/WhatsAppButton';
+import Footer from './components/Footer';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import './App.css';
 
 function App() {
+  const { t } = useTranslation();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Transtures S.A.</h1>
-        <p>
-          Transtures S.A. is a company dedicated to providing reliable and comfortable transportation services for organized groups, including educational tours, family trips, and luxury bus tours.
-        </p>
-      </header>
-      <div className="App-body">
-        <section id="services">
-          <h2>Our Services</h2>
-          <ul>
-            <li>Educational Tours</li>
-            <li>Family Trips</li>
-            <li>Luxury Bus Tours</li>
-          </ul>
-        </section>
-        <section id="contact">
-          <h2>Contact Us</h2>
-          <div>
-            <p><strong>Address:</strong> Cl. 145 #94-45, Bogotá, Cundinamarca, Colombia</p>
-            <p><strong>Phone:</strong> +57 311 4900367</p>
-          </div>
-        </section>
-      </div>
+      <Header />
+      <Banner />
+      <Container className="mt-5">
+        <Row>
+          <Col>
+            <section id="services">
+              <h2>{t('our_services')}</h2>
+              <Row>
+                <Col md={4}>
+                  <Card>
+                    {/* TODO: Replace with a real image URL */}
+                    <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Educational+Tours" />
+                    <Card.Body>
+                      <Card.Title>{t('educational_tours')}</Card.Title>
+                      <Card.Text>
+                        {t('educational_tours_text')}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+                <Col md={4}>
+                  <Card>
+                    {/* TODO: Replace with a real image URL */}
+                    <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Family+Trips" />
+                    <Card.Body>
+                      <Card.Title>{t('family_trips')}</Card.Title>
+                      <Card.Text>
+                        {t('family_trips_text')}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+                <Col md={4}>
+                  <Card>
+                    {/* TODO: Replace with a real image URL */}
+                    <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Luxury+Bus+Tours" />
+                    <Card.Body>
+                      <Card.Title>{t('luxury_bus_tours')}</Card.Title>
+                      <Card.Text>
+                        {t('luxury_bus_tours_text')}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+            </section>
+          </Col>
+        </Row>
+        <Row className="mt-5">
+          <Col>
+            <section id="contact">
+              <h2>{t('contact_us')}</h2>
+              <p><strong>{t('address')}</strong> Cl. 145 #94-45, Bogotá, Cundinamarca, Colombia</p>
+              <p><strong>{t('phone')}</strong> +57 311 4900367</p>
+            </section>
+          </Col>
+        </Row>
+      </Container>
+      <WhatsAppButton />
+      <Footer />
     </div>
   );
 }

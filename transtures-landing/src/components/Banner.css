@@ -1,0 +1,28 @@
+.banner-container {
+  position: relative;
+  color: white;
+}
+
+.banner-carousel .carousel-item {
+  max-height: 500px;
+}
+
+.banner-carousel .carousel-item img {
+  object-fit: cover;
+  height: 500px;
+  width: 100%;
+}
+
+.banner-caption-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
