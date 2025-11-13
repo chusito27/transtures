@@ -8,6 +8,7 @@ import BannersAdmin from './admin/BannersAdmin';
 import ServicesAdmin from './admin/ServicesAdmin';
 import FinancesAdmin from './admin/FinancesAdmin';
 import AddDestination from './admin/AddDestination'; // Import AddDestination
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 import './Dashboard.css';
 
 const Dashboard = () => {
