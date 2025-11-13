@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { db } from '../../firebase';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
+import { useTranslation } from 'react-i18next';
 
 const BannersAdmin = () => {
   const [banners, setBanners] = useState([]);
@@ -9,6 +10,7 @@ const BannersAdmin = () => {
   const [currentBanner, setCurrentBanner] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
   const [altText, setAltText] = useState('');
+  const { t } = useTranslation();
 
   const bannersCollectionRef = collection(db, 'banners');
 
@@ -55,17 +57,17 @@ const BannersAdmin = () => {
 
   return (
     <Container fluid className="p-4">
-      <h1 className="mb-4">Banners Admin</h1>
+      <h1 className="mb-4">{t('banners_admin')}</h1>
       <Button variant="primary" className="mb-3" onClick={() => handleShowModal()}>
-        Add Banner
+        {t('add_banner')}
       </Button>
 
       <Table striped bordered hover responsive className="shadow-sm">
         <thead className="bg-light">
           <tr>
-            <th>Image URL</th>
-            <th>Alt Text</th>
-            <th>Actions</th>
+            <th>{t('image_url')}</th>
+            <th>{t('alt_text')}</th>
+            <th>{t('actions')}</th>
           </tr>
         </thead>
         <tbody>
@@ -77,10 +79,10 @@ const BannersAdmin = () => {
               <td>{banner.altText}</td>
               <td>
                 <Button variant="outline-warning" size="sm" className="me-2" onClick={() => handleShowModal(banner)}>
-                  Edit
+                  {t('edit')}
                 </Button>
                 <Button variant="outline-danger" size="sm" onClick={() => handleDelete(banner.id)}>
-                  Delete
+                  {t('delete')}
                 </Button>
               </td>
             </tr>
@@ -90,25 +92,25 @@ const BannersAdmin = () => {
 
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton className="bg-light">
-          <Modal.Title>{currentBanner ? 'Edit Banner' : 'Add Banner'}</Modal.Title>
+          <Modal.Title>{currentBanner ? t('edit_banner') : t('add_banner')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label>Image URL</Form.Label>
+              <Form.Label>{t('image_url')}</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter image URL"
+                placeholder={t('enter_image_url')}
                 value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)}
                 required
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Alt Text</Form.Label>
+              <Form.Label>{t('alt_text')}</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter alt text"
+                placeholder={t('enter_alt_text')}
                 value={altText}
                 onChange={(e) => setAltText(e.target.value)}
                 required
@@ -116,7 +118,7 @@ const BannersAdmin = () => {
             </Form.Group>
             <div className="d-grid gap-2">
               <Button variant="primary" type="submit">
-                {currentBanner ? 'Update' : 'Add'}
+                {currentBanner ? t('update') : t('add')}
               </Button>
             </div>
           </Form>

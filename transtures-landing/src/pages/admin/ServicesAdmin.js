@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { db } from '../../firebase';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
+import { useTranslation } from 'react-i18next';
 
 const ServicesAdmin = () => {
   const [services, setServices] = useState([]);
@@ -9,6 +10,7 @@ const ServicesAdmin = () => {
   const [currentService, setCurrentService] = useState(null);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const { t } = useTranslation();
 
   const servicesCollectionRef = collection(db, 'services');
 
@@ -55,17 +57,17 @@ const ServicesAdmin = () => {
 
   return (
     <Container fluid className="p-4">
-      <h1 className="mb-4">Services Admin</h1>
+      <h1 className="mb-4">{t('services_admin')}</h1>
       <Button variant="primary" className="mb-3" onClick={() => handleShowModal()}>
-        Add Service
+        {t('add_service')}
       </Button>
 
       <Table striped bordered hover responsive className="shadow-sm">
         <thead className="bg-light">
           <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Actions</th>
+            <th>{t('title')}</th>
+            <th>{t('description')}</th>
+            <th>{t('actions')}</th>
           </tr>
         </thead>
         <tbody>
@@ -75,10 +77,10 @@ const ServicesAdmin = () => {
               <td>{service.description}</td>
               <td>
                 <Button variant="outline-warning" size="sm" className="me-2" onClick={() => handleShowModal(service)}>
-                  Edit
+                  {t('edit')}
                 </Button>
                 <Button variant="outline-danger" size="sm" onClick={() => handleDelete(service.id)}>
-                  Delete
+                  {t('delete')}
                 </Button>
               </td>
             </tr>
@@ -88,26 +90,26 @@ const ServicesAdmin = () => {
 
       <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton className="bg-light">
-          <Modal.Title>{currentService ? 'Edit Service' : 'Add Service'}</Modal.Title>
+          <Modal.Title>{currentService ? t('edit_service') : t('add_service')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label>Title</Form.Label>
+              <Form.Label>{t('title')}</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter title"
+                placeholder={t('enter_title')}
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>{t('description')}</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
-                placeholder="Enter description"
+                placeholder={t('enter_description')}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
@@ -115,7 +117,7 @@ const ServicesAdmin = () => {
             </Form.Group>
             <div className="d-grid gap-2">
               <Button variant="primary" type="submit">
-                {currentService ? 'Update' : 'Add'}
+                {currentService ? t('update') : t('add')}
               </Button>
             </div>
           </Form>
