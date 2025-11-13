@@ -20,16 +20,16 @@ const TourCard = ({ tour }) => {
           ))}
         </Carousel>
         <Card.Body>
-          <Card.Title>{t(tour.title)}</Card.Title>
+          <Card.Title>{tour.title}</Card.Title>
         </Card.Body>
       </Card>
 
       <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header closeButton>
-          <Modal.Title>{t(tour.title)}</Modal.Title>
+          <Modal.Title>{tour.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>{t(tour.description)}</p>
+          <p>{tour.description}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

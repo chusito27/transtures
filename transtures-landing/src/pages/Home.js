@@ -1,20 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
-import Destinations from '../components/Destinations';
 import WhatsAppButton from '../components/WhatsAppButton';
 import Footer from '../components/Footer';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import TourCard from '../components/TourCard'; // Import TourCard
+import { Container, Row, Col, Card, Spinner } from 'react-bootstrap'; // Import Spinner
 import { useTranslation } from 'react-i18next';
+import { db } from '../firebase'; // Import db from firebase
+import { collection, getDocs } from 'firebase/firestore'; // Import Firestore functions
 
 const Home = () => {
   const { t } = useTranslation();
+  const [destinations, setDestinations] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const getDestinations = async () => {
+      const data = await getDocs(collection(db, 'destinations'));
+      setDestinations(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setLoading(false);
+    };
+    getDestinations();
+  }, []);
 
   return (
     <div className="App">
       <Header />
       <Banner />
-      <Destinations />
+      <section id="destinations" className="py-5">
+        <Container>
+          <h2 className="text-center mb-4">{t('destinations')}</h2>
+          {loading ? (
+            <div className="text-center">
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">{t('loading')}</span>
+              </Spinner>
+            </div>
+          ) : (
+            <Row>
+              {destinations.map((tour, index) => (
+                <Col md={6} lg={4} key={index} className="mb-4">
+                  <TourCard tour={tour} />
+                </Col>
+              ))}
+            </Row>
+          )}
+        </Container>
+      </section>
       <Container className="mt-5">
         <Row>
           <Col>

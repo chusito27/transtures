@@ -87,5 +87,6 @@
   "image_upload_note": "Por favor, selecciona hasta 5 imágenes para el destino.",
   "image_previews": "Previsualizaciones de Imágenes",
   "adding_destination": "Añadiendo Destino...",
-  "cancel": "Cancelar"
+  "cancel": "Cancelar",
+  "loading": "Cargando..."
 }
