@@ -54,14 +54,14 @@ const BannersAdmin = () => {
   };
 
   return (
-    <Container>
-      <h1>Banners Admin</h1>
-      <Button variant="primary" onClick={() => handleShowModal()}>
+    <Container fluid className="p-4">
+      <h1 className="mb-4">Banners Admin</h1>
+      <Button variant="primary" className="mb-3" onClick={() => handleShowModal()}>
         Add Banner
       </Button>
 
-      <Table striped bordered hover className="mt-3">
-        <thead>
+      <Table striped bordered hover responsive className="shadow-sm">
+        <thead className="bg-light">
           <tr>
             <th>Image URL</th>
             <th>Alt Text</th>
@@ -71,13 +71,15 @@ const BannersAdmin = () => {
         <tbody>
           {banners.map((banner) => (
             <tr key={banner.id}>
-              <td>{banner.imageUrl}</td>
+              <td>
+                <img src={banner.imageUrl} alt={banner.altText} style={{ width: '100px', height: 'auto', objectFit: 'cover' }} />
+              </td>
               <td>{banner.altText}</td>
               <td>
-                <Button variant="warning" size="sm" className="me-2" onClick={() => handleShowModal(banner)}>
+                <Button variant="outline-warning" size="sm" className="me-2" onClick={() => handleShowModal(banner)}>
                   Edit
                 </Button>
-                <Button variant="danger" size="sm" onClick={() => handleDelete(banner.id)}>
+                <Button variant="outline-danger" size="sm" onClick={() => handleDelete(banner.id)}>
                   Delete
                 </Button>
               </td>
@@ -86,8 +88,8 @@ const BannersAdmin = () => {
         </tbody>
       </Table>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
+      <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Header closeButton className="bg-light">
           <Modal.Title>{currentBanner ? 'Edit Banner' : 'Add Banner'}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -112,9 +114,11 @@ const BannersAdmin = () => {
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              {currentBanner ? 'Update' : 'Add'}
-            </Button>
+            <div className="d-grid gap-2">
+              <Button variant="primary" type="submit">
+                {currentBanner ? 'Update' : 'Add'}
+              </Button>
+            </div>
           </Form>
         </Modal.Body>
       </Modal>

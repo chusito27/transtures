@@ -58,14 +58,14 @@ const DestinationsAdmin = () => {
   };
 
   return (
-    <Container>
-      <h1>Destinations Admin</h1>
-      <Button variant="primary" onClick={() => handleShowModal()}>
+    <Container fluid className="p-4">
+      <h1 className="mb-4">Destinations Admin</h1>
+      <Button variant="primary" className="mb-3" onClick={() => handleShowModal()}>
         Add Destination
       </Button>
 
-      <Table striped bordered hover className="mt-3">
-        <thead>
+      <Table striped bordered hover responsive className="shadow-sm">
+        <thead className="bg-light">
           <tr>
             <th>Title</th>
             <th>Description</th>
@@ -78,12 +78,16 @@ const DestinationsAdmin = () => {
             <tr key={destination.id}>
               <td>{destination.title}</td>
               <td>{destination.description}</td>
-              <td>{destination.images.join(', ')}</td>
               <td>
-                <Button variant="warning" size="sm" className="me-2" onClick={() => handleShowModal(destination)}>
+                {destination.images.map((img, idx) => (
+                  <img key={idx} src={img} alt="destination" style={{ width: '50px', height: '50px', objectFit: 'cover', marginRight: '5px' }} />
+                ))}
+              </td>
+              <td>
+                <Button variant="outline-warning" size="sm" className="me-2" onClick={() => handleShowModal(destination)}>
                   Edit
                 </Button>
-                <Button variant="danger" size="sm" onClick={() => handleDelete(destination.id)}>
+                <Button variant="outline-danger" size="sm" onClick={() => handleDelete(destination.id)}>
                   Delete
                 </Button>
               </td>
@@ -92,8 +96,8 @@ const DestinationsAdmin = () => {
         </tbody>
       </Table>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
+      <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Header closeButton className="bg-light">
           <Modal.Title>{currentDestination ? 'Edit Destination' : 'Add Destination'}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -129,9 +133,11 @@ const DestinationsAdmin = () => {
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              {currentDestination ? 'Update' : 'Add'}
-            </Button>
+            <div className="d-grid gap-2">
+              <Button variant="primary" type="submit">
+                {currentDestination ? 'Update' : 'Add'}
+              </Button>
+            </div>
           </Form>
         </Modal.Body>
       </Modal>

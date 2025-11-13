@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
+import { Container, Table, Button, Modal, Form, Card } from 'react-bootstrap';
 import { db } from '../../firebase';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
 
@@ -67,19 +67,36 @@ const FinancesAdmin = () => {
   const balance = totalIncomes - totalExpenses;
 
   return (
-    <Container>
-      <h1>Finances Admin</h1>
-      <div className="mb-3">
-        <h4>Total Expenses: ${totalExpenses.toFixed(2)}</h4>
-        <h4>Total Incomes: ${totalIncomes.toFixed(2)}</h4>
-        <h4>Balance: ${balance.toFixed(2)}</h4>
+    <Container fluid className="p-4">
+      <h1 className="mb-4">Finances Admin</h1>
+
+      <div className="mb-4 d-flex justify-content-around">
+        <Card className="text-center shadow-sm" style={{ width: '18rem' }}>
+          <Card.Body>
+            <Card.Title>Total Expenses</Card.Title>
+            <Card.Text className="fs-3 text-danger">${totalExpenses.toFixed(2)}</Card.Text>
+          </Card.Body>
+        </Card>
+        <Card className="text-center shadow-sm" style={{ width: '18rem' }}>
+          <Card.Body>
+            <Card.Title>Total Incomes</Card.Title>
+            <Card.Text className="fs-3 text-success">${totalIncomes.toFixed(2)}</Card.Text>
+          </Card.Body>
+        </Card>
+        <Card className="text-center shadow-sm" style={{ width: '18rem' }}>
+          <Card.Body>
+            <Card.Title>Balance</Card.Title>
+            <Card.Text className={`fs-3 ${balance >= 0 ? 'text-success' : 'text-danger'}`}>${balance.toFixed(2)}</Card.Text>
+          </Card.Body>
+        </Card>
       </div>
-      <Button variant="primary" onClick={() => handleShowModal()}>
+
+      <Button variant="primary" className="mb-3" onClick={() => handleShowModal()}>
         Add Transaction
       </Button>
 
-      <Table striped bordered hover className="mt-3">
-        <thead>
+      <Table striped bordered hover responsive className="shadow-sm">
+        <thead className="bg-light">
           <tr>
             <th>Type</th>
             <th>Description</th>
@@ -96,10 +113,10 @@ const FinancesAdmin = () => {
               <td>${transaction.amount.toFixed(2)}</td>
               <td>{transaction.date.toDate().toLocaleString()}</td>
               <td>
-                <Button variant="warning" size="sm" className="me-2" onClick={() => handleShowModal(transaction)}>
+                <Button variant="outline-warning" size="sm" className="me-2" onClick={() => handleShowModal(transaction)}>
                   Edit
                 </Button>
-                <Button variant="danger" size="sm" onClick={() => handleDelete(transaction.id)}>
+                <Button variant="outline-danger" size="sm" onClick={() => handleDelete(transaction.id)}>
                   Delete
                 </Button>
               </td>
@@ -108,8 +125,8 @@ const FinancesAdmin = () => {
         </tbody>
       </Table>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
+      <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Header closeButton className="bg-light">
           <Modal.Title>{currentTransaction ? 'Edit Transaction' : 'Add Transaction'}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -141,9 +158,11 @@ const FinancesAdmin = () => {
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              {currentTransaction ? 'Update' : 'Add'}
-            </Button>
+            <div className="d-grid gap-2">
+              <Button variant="primary" type="submit">
+                {currentTransaction ? 'Update' : 'Add'}
+              </Button>
+            </div>
           </Form>
         </Modal.Body>
       </Modal>

@@ -25,7 +25,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-wrapper">
       <Navbar bg="dark" variant="dark" className="dashboard-navbar">
-        <Navbar.Brand href="#home" className="ms-3">Admin Dashboard</Navbar.Brand>
+        <Navbar.Brand onClick={() => navigate('/admin')} className="ms-3" style={{ cursor: 'pointer' }}>Admin Dashboard</Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Button variant="outline-light" onClick={handleLogout} className="me-3">Logout</Button>
         </Navbar.Collapse>
@@ -33,11 +33,12 @@ const Dashboard = () => {
       <div className="d-flex">
         <div className="sidebar">
           <Nav className="flex-column">
-                      <Nav.Link onClick={() => navigate('/admin/inicio')}>Inicio</Nav.Link>
-                      <Nav.Link onClick={() => navigate('/admin/destinos')}>Destinos</Nav.Link>
-                      <Nav.Link onClick={() => navigate('/admin/banners')}>Banners</Nav.Link>
-                      <Nav.Link onClick={() => navigate('/admin/servicios')}>Servicios</Nav.Link>
-                      <Nav.Link onClick={() => navigate('/admin/finanzas')}>Finanzas</Nav.Link>          </Nav>
+            <Nav.Link onClick={() => navigate('/admin/inicio')} className={location.pathname === '/admin/inicio' ? 'active' : ''}>Inicio</Nav.Link>
+            <Nav.Link onClick={() => navigate('/admin/destinos')} className={location.pathname === '/admin/destinos' ? 'active' : ''}>Destinos</Nav.Link>
+            <Nav.Link onClick={() => navigate('/admin/banners')} className={location.pathname === '/admin/banners' ? 'active' : ''}>Banners</Nav.Link>
+            <Nav.Link onClick={() => navigate('/admin/servicios')} className={location.pathname === '/admin/servicios' ? 'active' : ''}>Servicios</Nav.Link>
+            <Nav.Link onClick={() => navigate('/admin/finanzas')} className={location.pathname === '/admin/finanzas' ? 'active' : ''}>Finanzas</Nav.Link>
+          </Nav>
         </div>
         <div className="content flex-grow-1">
           <Routes key={location.pathname}> {/* Add key prop here */}

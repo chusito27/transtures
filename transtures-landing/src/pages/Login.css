@@ -2,13 +2,52 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f4f4f4;
+  min-height: 100vh;
+  background: linear-gradient to bottom right, #003366, #009975); /* Subtle gradient */
+  background-color: #2c3e50; /* Darker base color */
 }
 
 .login-form {
-  padding: 2rem;
+  padding: 2.5rem;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form h1 {
+  color: #34495e;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.login-form .form-label {
+  font-weight: 500;
+  color: #34495e;
+}
+
+.login-form .form-control {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding: 0.75rem 1rem;
+}
+
+.login-form .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.login-form .btn-primary {
+  background-color: #009975; /* Brand green */
+  border-color: #009975;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.login-form .btn-primary:hover {
+  background-color: #007a5e;
+  border-color: #007a5e;
 }

@@ -54,14 +54,14 @@ const ServicesAdmin = () => {
   };
 
   return (
-    <Container>
-      <h1>Services Admin</h1>
-      <Button variant="primary" onClick={() => handleShowModal()}>
+    <Container fluid className="p-4">
+      <h1 className="mb-4">Services Admin</h1>
+      <Button variant="primary" className="mb-3" onClick={() => handleShowModal()}>
         Add Service
       </Button>
 
-      <Table striped bordered hover className="mt-3">
-        <thead>
+      <Table striped bordered hover responsive className="shadow-sm">
+        <thead className="bg-light">
           <tr>
             <th>Title</th>
             <th>Description</th>
@@ -74,10 +74,10 @@ const ServicesAdmin = () => {
               <td>{service.title}</td>
               <td>{service.description}</td>
               <td>
-                <Button variant="warning" size="sm" className="me-2" onClick={() => handleShowModal(service)}>
+                <Button variant="outline-warning" size="sm" className="me-2" onClick={() => handleShowModal(service)}>
                   Edit
                 </Button>
-                <Button variant="danger" size="sm" onClick={() => handleDelete(service.id)}>
+                <Button variant="outline-danger" size="sm" onClick={() => handleDelete(service.id)}>
                   Delete
                 </Button>
               </td>
@@ -86,8 +86,8 @@ const ServicesAdmin = () => {
         </tbody>
       </Table>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
+      <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Header closeButton className="bg-light">
           <Modal.Title>{currentService ? 'Edit Service' : 'Add Service'}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -113,9 +113,11 @@ const ServicesAdmin = () => {
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              {currentService ? 'Update' : 'Add'}
-            </Button>
+            <div className="d-grid gap-2">
+              <Button variant="primary" type="submit">
+                {currentService ? 'Update' : 'Add'}
+              </Button>
+            </div>
           </Form>
         </Modal.Body>
       </Modal>
