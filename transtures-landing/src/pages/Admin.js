@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { auth } from '../firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 import Login from './Login';
 import Dashboard from './Dashboard';
 
 const Admin = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
-  const handleLogin = () => {
-    setLoggedIn(true);
-  };
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
 
   return (
     <div>
-      {loggedIn ? <Dashboard /> : <Login onLogin={handleLogin} />}
+      {user ? <Dashboard /> : <Login />}
     </div>
   );
 };
