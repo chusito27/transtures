@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transtures - Multi-Agent Coding</title>
+</head>
+<body>
+    <h1>Transtures - Multi-Agent Coding</h1>
+    <input type="text" id="commandInput" placeholder="Enter your command" style="width: 500px;">
+    <button onclick="sendCommand()">Send</button>
+    <pre id="output"></pre>
+
+    <script>
+        function sendCommand() {
+            const command = document.getElementById('commandInput').value;
+            // In a real implementation, this would send the command to the backend
+            // and display the result.
+            const output = document.getElementById('output');
+            output.textContent = `Command sent: ${command}\n`;
+            output.textContent += "Response from orchestrator will be shown here.";
+        }
+    </script>
+</body>
+</html>
