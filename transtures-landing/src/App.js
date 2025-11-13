@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Banner from './components/Banner';
+import Destinations from './components/Destinations';
 import WhatsAppButton from './components/WhatsAppButton';
 import Footer from './components/Footer';
 import { Container, Row, Col, Card } from 'react-bootstrap';
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <Header />
       <Banner />
+      <Destinations />
       <Container className="mt-5">
         <Row>
           <Col>
