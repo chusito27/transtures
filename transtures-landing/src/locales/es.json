@@ -90,5 +90,11 @@
   "cancel": "Cancelar",
   "loading": "Cargando...",
   "interested_in_tour": "Me interesa el tour",
-  "more_info": "quiero más información."
+  "more_info": "quiero más información.",
+  "availability": "Disponibilidad",
+  "enter_availability": "Introduce la disponibilidad",
+  "max_3_images": "Puedes seleccionar hasta 3 imágenes.",
+  "image_upload_note_3": "Por favor, selecciona hasta 3 imágenes para el servicio.",
+  "error_adding_service": "Error al añadir el servicio.",
+  "uploading_images": "Subiendo Imágenes..."
 }
