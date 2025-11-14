@@ -4,6 +4,7 @@ import Banner from '../components/Banner';
 import WhatsAppButton from '../components/WhatsAppButton';
 import Footer from '../components/Footer';
 import TourCard from '../components/TourCard'; // Import TourCard
+import Services from '../components/Services';
 import { Container, Row, Col, Card, Spinner } from 'react-bootstrap'; // Import Spinner
 import { useTranslation } from 'react-i18next';
 import { db } from '../firebase'; // Import db from firebase
@@ -47,49 +48,7 @@ const Home = () => {
           )}
         </Container>
       </section>
-      <section id="services" className="py-5 bg-dark-gray text-white">
-        <Container>
-          <h2 className="text-center mb-4">{t('our_services')}</h2>
-          <Row>
-            <Col md={4}>
-              <Card>
-                {/* TODO: Replace with a real image URL */}
-                <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Educational+Tours" />
-                <Card.Body>
-                  <Card.Title>{t('educational_tours')}</Card.Title>
-                  <Card.Text>
-                    {t('educational_tours_text')}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={4}>
-              <Card>
-                {/* TODO: Replace with a real image URL */}
-                <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Family+Trips" />
-                <Card.Body>
-                  <Card.Title>{t('family_trips')}</Card.Title>
-                  <Card.Text>
-                    {t('family_trips_text')}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={4}>
-              <Card>
-                {/* TODO: Replace with a real image URL */}
-                <Card.Img variant="top" src="https://via.placeholder.com/300x200?text=Luxury+Bus+Tours" />
-                <Card.Body>
-                  <Card.Title>{t('luxury_bus_tours')}</Card.Title>
-                  <Card.Text>
-                    {t('luxury_bus_tours_text')}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <Services />
       <section id="contact" className="py-5 bg-white">
         <Container>
           <h2 className="text-center mb-4">{t('contact_us')}</h2>
@@ -109,3 +68,5 @@ const Home = () => {
 };
 
 export default Home;
+
+
